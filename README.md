@@ -8,7 +8,7 @@ This is the C project from 42 Abu Dhabi for sorting numbers with provided steps 
 - [x] Sort a random list of integers using the smallest number of moves, 2 stacks and a limited set of operations.
 - [x] You start with two empty stacks: a and b. You are given a random list of integers via command line arguments.
 
-**Only these moves are allowed:**
+***Only these moves are allowed:***
 - sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
 * sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements.
 + ss : sa and sb at the same time.
