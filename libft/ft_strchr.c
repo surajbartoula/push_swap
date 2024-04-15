@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/21 22:54:46 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/26 13:52:09 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strchr(const char *str, int c)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
+		i++;
 	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-	}
+	if (str[i] == (char)c)
+		return ((char *)&str[i]);
+	return (0);
 }

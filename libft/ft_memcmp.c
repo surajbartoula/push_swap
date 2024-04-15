@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/22 13:21:53 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/22 13:48:40 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	const unsigned char	*s1;
+	const unsigned char	*s2;
+	size_t				i;
+
+	i = 0;
+	s1 = (const unsigned char *)str1;
+	s2 = (const unsigned char *)str2;
+	while (i < n)
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-	}
+	return (0);
 }

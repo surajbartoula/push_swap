@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/25 17:02:16 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/25 18:05:46 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
+	unsigned int	len;
+	char			*str;
+	unsigned int	i;
+
+	i = 0;
+	if (!s || !f)
 		return (0);
-	}
-	else if (argc == 2)
+	len = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	while (i < len)
 	{
-		argv = ft_split(argv[1], ' ');
+		str[i] = f(i, s[i]);
+		i++;
 	}
+	str[len] = '\0';
+	return (str);
 }

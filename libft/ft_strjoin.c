@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/23 12:36:01 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/23 13:39:17 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
+	char	*str;
+	char	*ptr;
+
+	if (!s1 && !s2)
 		return (0);
-	}
-	else if (argc == 2)
+	else if (!s1)
+		return ((char *)s2);
+	else if (!s2)
+		return ((char *)s1);
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (str)
 	{
-		argv = ft_split(argv[1], ' ');
+		ptr = str;
+		while (*s1)
+			*ptr++ = *s1++;
+		while (*s2)
+			*ptr++ = *s2++;
+		*ptr = '\0';
 	}
+	return (str);
 }

@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2024/01/07 19:21:05 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/03/17 22:08:11 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int argc, char *argv[])
+int	print_hex(long num, int uppercase)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	int		count;
+	char	*symbols;
+
+	if (!uppercase)
+		symbols = "0123456789abcdef";
+	else
+		symbols = "0123456789ABCDEF";
+	if (num < 0)
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
+		print_char('-');
+		return (print_hex(-num, uppercase) + 1);
 	}
-	else if (argc == 2)
+	else if (num < 16)
 	{
-		argv = ft_split(argv[1], ' ');
+		return (print_char(symbols[num]));
+	}
+	else
+	{
+		count = print_hex((num / 16), uppercase);
+		return (count + print_hex((num % 16), uppercase));
 	}
 }

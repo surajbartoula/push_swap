@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/20 00:12:49 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/01/09 14:14:14 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
+	unsigned char	*tdest;
+	unsigned char	*tsrc;
+
+	if (dest == NULL && src == NULL)
 		return (0);
-	}
-	else if (argc == 2)
+	tdest = (unsigned char *)dest;
+	tsrc = (unsigned char *)src;
+	while (n > 0)
 	{
-		argv = ft_split(argv[1], ' ');
+		*tdest = *tsrc;
+		tdest++;
+		tsrc++;
+		n--;
 	}
+	return (dest);
 }

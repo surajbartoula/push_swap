@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/21 18:17:57 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/21 22:16:55 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlcpy(char *dest, const char *src, size_t len)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
+	size_t	srcsize;
+	size_t	i;
+
+	i = 0;
+	srcsize = ft_strlen(src);
+	if (!src || !dest)
 		return (0);
-	}
-	else if (argc == 2)
+	if (len == 0)
+		return (srcsize);
+	while (src[i] != '\0' && i < (len - 1))
 	{
-		argv = ft_split(argv[1], ' ');
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = '\0';
+	return (srcsize);
 }

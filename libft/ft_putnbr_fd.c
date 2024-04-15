@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/26 13:14:51 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/26 13:38:38 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	char	c;
+
+	if (n == -2147483648)
+		write(fd, &"-2147483648", 11);
+	else
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
-	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
+		if (n < 0)
+		{
+			write(fd, &"-", 1);
+			n = -n;
+			ft_putnbr_fd(n, fd);
+		}
+		else if (n < 10)
+		{
+			c = n + 48;
+			write(fd, &c, 1);
+		}
+		else
+		{
+			ft_putnbr_fd(n / 10, fd);
+			c = (n % 10) + 48;
+			write(fd, &c, 1);
+		}
 	}
 }

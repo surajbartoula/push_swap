@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/22 21:08:30 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/01/02 18:21:00 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_calloc(size_t num, size_t size)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
+	size_t	len;
+	void	*ptr;
+
+	if (size && (num > SIZE_MAX / size))
+		return (NULL);
+	len = num * size;
+	ptr = malloc(len);
+	if (!ptr)
 		return (0);
-	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-	}
+	ft_bzero(ptr, len);
+	return (ptr);
 }

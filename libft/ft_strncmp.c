@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/20 18:41:10 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/20 18:46:51 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	unsigned int	index;
+
+	index = 0;
+	while ((s1[index] != '\0' || s2[index] != '\0') && index < n)
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
+		if (s1[index] != s2[index])
+		{
+			return ((unsigned char)s1[index] - (unsigned char)s2[index]);
+		}
+		index++;
 	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-	}
+	return (0);
 }

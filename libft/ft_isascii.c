@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:18 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/19 13:42:34 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/19 13:45:03 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char *argv[])
+int	ft_isascii(int c)
 {
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	if (c >= 0 && c <= 127)
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
+		return (1);
 	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-	}
+	return (0);
 }
