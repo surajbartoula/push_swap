@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 21:42:09 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/01/08 17:59:41 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/15 07:09:02 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdint.h>
 
 int				ft_printf(const char *format, ...);
 int				ft_format(char specifier, va_list ap);
