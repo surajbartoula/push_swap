@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 16:15:43 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/13 19:34:04 by sbartoul         ###   ########.fr       */
+/*   Updated: 2023/12/27 13:03:08 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 static int	ft_len(long n)
 {
 	size_t	len;
+	int		neg;
 
 	len = 0;
+	neg = 0;
 	if (n < 0)
 	{
 		len++;
+		neg++;
 		n = -n;
 	}
 	while (n >= 1)

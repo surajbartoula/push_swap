@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/16 11:58:27 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/28 23:55:07 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/01/09 14:24:10 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_list	*node;
+	t_list	*temp;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	if (lst == NULL || del == NULL)
+		return ;
+	node = *lst;
+	while (node)
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
+		temp = node->next;
+		ft_lstdelone(node, del);
+		node = temp;
 	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-	}
+	*lst = NULL;
 }

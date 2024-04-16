@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/13 19:17:54 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:06:27 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,13 @@
 # include <errno.h>
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
+
+typedef struct push_swap
+{
+	struct 	push_swap *next;
+	struct 	push_swap *prev;
+	int		num;
+	int		position_index;
+}	t_stack;
 
 #endif

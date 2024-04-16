@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/16 11:58:27 by sbartoul         ###   ########.fr       */
+/*   Created: 2023/12/28 20:42:05 by sbartoul          #+#    #+#             */
+/*   Updated: 2023/12/28 21:05:15 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	ft_lstadd_back(t_list **lst, t_list *new_lst)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_list	*node;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	if (*lst)
 	{
-		ft_printf("Please provide the right extension ./push_swap arguments\n");
-		return (0);
+		node = *lst;
+		while (node->next)
+			node = node->next;
+		node->next = new_lst;
 	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-	}
+	else
+		*lst = new_lst;
 }

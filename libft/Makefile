@@ -6,23 +6,17 @@
 #    By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 15:33:44 by sbartoul          #+#    #+#              #
-#    Updated: 2024/03/26 10:20:47 by sbartoul         ###   ########.fr        #
+#    Updated: 2023/12/26 16:56:10 by sbartoul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
+AR = ar rcs
+CC = cc
+RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-
-Y = "\033[33m"
-R = "\033[31m"
-G = "\033[32m"
-B = "\033[34m"
-X = "\033[0m"
-UP = "\033[A"
-CUT = "\033[K"
-
-CFILES = ft_bzero.c					\
+SRCS = ft_bzero.c					\
 		ft_atoi.c					\
 		ft_calloc.c					\
 		ft_isalnum.c				\
@@ -56,34 +50,33 @@ CFILES = ft_bzero.c					\
 		ft_substr.c					\
 		ft_tolower.c				\
 		ft_toupper.c				\
-		ft_strcmp.c					\
+
+SRCSBONUS = ft_lstnew.c					\
+			ft_lstadd_front.c			\
+			ft_lstsize.c				\
+			ft_lstlast.c				\
+			ft_lstadd_back.c			\
+			ft_lstdelone.c				\
+			ft_lstclear.c				\
+			ft_lstiter.c				\
+			ft_lstmap.c					\
 
 
-OBJECTS = ${CFILES:.c=.o}
+OBJECTS = ${SRCS:.c=.o}
+OBJECTSBONUS = ${SRCSBONUS:.c=.o}
 
-%.o : %.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
-	@printf $(UP)$(CUT)
-	@echo $(Y)Compiling [$<]...$(X)
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+${NAME}: ${OBJECTS}
+				${AR} ${NAME} ${OBJECTS}
+bonus: ${NAME} ${OBJECTSBONUS}
+		${AR} ${NAME} ${OBJECTSBONUS}
 
-all: $(NAME)
-
-$(NAME): $(OBJECTS)
-	@printf $(UP)$(CUT)
-	@echo $(Y)Compiling [$(NAME)]...$(X)
-	@ar -rcs $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
-	@echo $(G)Finished [$(NAME)]$(X)
-	@echo
-
+all: ${NAME}
 clean:
-	@rm -f $(OBJECTS)
-	@echo $(R)Removed [$(OBJECTS)]$(X)
-
+		${RM} ${OBJECTS} ${OBJECTSBONUS}
 fclean: clean
-	@rm -f $(NAME)
-	@echo $(R)Removed [$(NAME)]$(X)
-
-re: fclean all
+		${RM} ${NAME}
+re : fclean all
 
 .PHONY: all clean fclean re
