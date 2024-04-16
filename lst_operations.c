@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   lst_operations.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 19:57:23 by sbartoul          #+#    #+#             */
-/*   Updated: 2023/12/28 20:10:14 by sbartoul         ###   ########.fr       */
+/*   Created: 2024/04/16 15:18:36 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/04/16 20:02:25 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+#include "libft/libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	fill_lst_a(char **argv, t_stack *a)
 {
-	t_list	*node;
+	int		i;
+	int		num;
 
-	node = (t_list *)malloc(sizeof(t_list));
-	if (!node)
-		return (0);
-	node->next = NULL;
-	node->content = content;
-	return (node);
+	i = 0;
+	while (argv[i] != 0)
+	{
+		num = ft_atoi(argv[i]);
+		if (i == 0)
+			a = ft_lstnew(num);
+		else
+			ft_lstadd_back(&a, ft_lstnew(argv[i]));
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/16 12:06:27 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/16 20:24:23 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ typedef struct push_swap
 	int		num;
 	int		position_index;
 }	t_stack;
+
+void	fill_lst_a(char **argv, t_stack *a);
 
 #endif
