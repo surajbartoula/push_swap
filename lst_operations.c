@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:18:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/17 18:13:15 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:38:58 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new_lst)
 		while (node->next)
 			node = node->next;
 		node->next = new_lst;
+		new_lst->prev = node;
 	}
 	else
 		*lst = new_lst;
@@ -35,6 +36,7 @@ t_stack	*ft_lstnew(int *num)
 	if (!node)
 		return (0);
 	node->next = NULL;
+	node->prev = NULL;
 	node->num = num;
 	return (node);
 }
