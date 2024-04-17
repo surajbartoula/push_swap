@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/16 20:24:23 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:37:40 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <errno.h>
-# include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
 
 typedef struct push_swap
@@ -28,6 +27,7 @@ typedef struct push_swap
 	int		position_index;
 }	t_stack;
 
-void	fill_lst_a(char **argv, t_stack *a);
+void	ft_lstadd_back(t_stack **lst, t_stack *new_lst);
+t_stack	*ft_lstnew(int *num);
 
 #endif

@@ -6,26 +6,35 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:18:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/16 20:02:25 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:13:15 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
-void	fill_lst_a(char **argv, t_stack *a)
+void	ft_lstadd_back(t_stack **lst, t_stack *new_lst)
 {
-	int		i;
-	int		num;
+	t_stack	*node;
 
-	i = 0;
-	while (argv[i] != 0)
+	if (*lst)
 	{
-		num = ft_atoi(argv[i]);
-		if (i == 0)
-			a = ft_lstnew(num);
-		else
-			ft_lstadd_back(&a, ft_lstnew(argv[i]));
-		i++;
+		node = *lst;
+		while (node->next)
+			node = node->next;
+		node->next = new_lst;
 	}
+	else
+		*lst = new_lst;
+}
+
+t_stack	*ft_lstnew(int *num)
+{
+	t_stack	*node;
+
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (!node)
+		return (0);
+	node->next = NULL;
+	node->num = num;
+	return (node);
 }
