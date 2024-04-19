@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stacksortcheck.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/19 18:02:56 by sbartoul         ###   ########.fr       */
+/*   Created: 2024/04/19 15:19:30 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/04/19 20:09:58 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int	stack_sorted(int *arr)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	len;
+	int	i;
 
-	a = NULL;
-	b = NULL;
-	returnlsta(argc, argv, &a);
-	if (!a || duplicate(a))
+	len = sizeof(arr) / sizeof(arr[0]);
+	i = -1;
+	while (++i < (len - 1))
 	{
-		ft_free_stack(&a);
-		ft_error("Duplicate number or stack doesn't exist.");
+		if (arr[i] > arr[i + 1])
+			return (0);
 	}
-	fill_postion_index(&a);
-	ft_sort(&a);
-	ft_free_stack(&a);
-	return (0);
+	return (1);
 }
