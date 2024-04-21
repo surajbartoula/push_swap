@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   papb.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/19 22:46:17 by sbartoul         ###   ########.fr       */
+/*   Created: 2024/04/21 07:54:27 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/04/21 08:06:07 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	ft_pa(t_stack **a, t_stack **b, int j)
 {
-	t_stack	*a;
 
-	a = NULL;
-	returnlsta(argc, argv, &a);
-	if (!a || duplicate(a))
-	{
-		ft_free_stack(&a);
-		ft_error("Duplicate number or stack doesn't exist.");
-	}
-	fill_postion_index(&a);
-	ft_sort(&a);
-	ft_free_stack(&a);
-	return (0);
+}
+
+void	ft_pb(t_stack **a, t_stack **b, int j)
+{
+
+}
+
+void	ft_rrr(t_stack **a, t_stack **b, int j)
+{
+
 }
