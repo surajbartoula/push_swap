@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/21 08:08:43 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/21 21:20:15 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	ft_rb(t_stack **b, int j);
 void	ft_rr(t_stack **a, t_stack **b, int j);
 void	ft_rra(t_stack **a, int j);
 void	ft_rrb(t_stack **b, int j);
+int		ft_lstsize(t_stack *lst);
 
 #endif

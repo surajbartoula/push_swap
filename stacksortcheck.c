@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:19:30 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/19 20:09:58 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/21 23:42:46 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	stack_sorted(int *arr)
 	int	i;
 
 	len = sizeof(arr) / sizeof(arr[0]);
+	if (len == 1)
+		exit(0);
 	i = -1;
 	while (++i < (len - 1))
 	{
