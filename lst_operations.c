@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:18:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/21 21:16:10 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/22 04:52:47 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_free_stack(t_stack **lst)
 	{
 		temp = (*lst)->next;
 		(*lst)->num = 0;
-		(*lst)->position_index = 0;
+		(*lst)->p_index = 0;
 		free(*lst);
 		*lst = temp;
 	}
