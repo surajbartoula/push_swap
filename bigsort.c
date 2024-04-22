@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 07:09:34 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/22 07:50:28 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void	ft_bigsort(t_stack **a)
 		{
 			(*a) = (*a)->next;
 			index++;
+		}
+		if (index >= (len - index))
+		{
+			
+		}
+		else
+		{
+			
 		}
 	}
 }
