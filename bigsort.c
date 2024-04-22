@@ -6,37 +6,49 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 07:50:28 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/22 20:42:11 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_bigsort(t_stack **a)
+void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 {
 	int	i;
-	int	len;
 	int	index;
 
-	i = 0;
+	i = 1;
 	index = 0;
-	len = ft_lstsize(&a);
-	while (i < len)
+	while (i <= len - 3)
 	{
-		if (i == len - 3)
-			ft_tiny_sort(&a);
 		while ((*a)->p_index != i)
 		{
 			(*a) = (*a)->next;
 			index++;
 		}
-		if (index >= (len - index))
+		if (index < (len - index))
 		{
-			
+			ft_ra(&a, index);
+			ft_pb(&a, &b, 1);
 		}
 		else
 		{
-			
+			ft_rra(&a, index -1);
+			ft_pb(&a, &b, 1);
 		}
 	}
+}
+
+void	ft_bigsort(t_stack **a, t_stack **b)
+{
+	int	i;
+	int	len;
+	int	index;
+
+	i = 1;
+	index = 0;
+	len = ft_lstsize(&a);
+	ft_rotate_push(&a, &b, len);
+	ft_tiny_sort(&a);
+	ft_pa(&a, &b, len - 3);
 }

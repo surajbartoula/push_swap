@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 22:46:33 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 06:10:23 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:27:53 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void	ft_sort(t_stack **a)
 	else if (ft_lstsize(a) == 3)
 		ft_tiny_sort(&a);
 	else
-		ft_bigsort(&a);
+		ft_bigsort(&a, &b);
 }

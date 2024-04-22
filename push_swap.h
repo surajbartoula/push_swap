@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 07:08:30 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:27:34 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	ft_rrb(t_stack **b, int j);
 int		ft_lstsize(t_stack *lst);
 void	ft_sort(t_stack **a);
 void	ft_tiny_sort(t_stack **a);
+void	ft_bigsort(t_stack **a, t_stack **b);
 
 #endif
