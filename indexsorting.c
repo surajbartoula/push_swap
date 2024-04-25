@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:08:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 07:59:24 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 22:44:34 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,40 +55,34 @@ void	fill_a_index(t_stack **a, int *sortedarray, int len)
 	current = *a;
 	while (i < len && current != NULL)
 	{
-		while ((*a)->next)
+		if (sortedarray[i] == current->num)
 		{
-			if (sortedarray[i] == (*a)->num)
-			{
-				(*a)->p_index = i;
-				(*a)->next;
-				break ;
-			}
-			*a = (*a)->next;
+			current->p_index = i;
+			current = current->next;
+			i++;
 		}
-		i++;
+		else
+			current = current->next;
 	}
 }
 
-int	*getarray(t_stack **a)
+int	*getarray(t_stack **a, int len)
 {
 	t_stack	*temp;
 	int		*sortedarray;
 	int		i;
 
+	if (*a == NULL)
+		return (0);
 	temp = *a;
-	while (temp->next)
-	{
-		i++;
-		temp = temp->next;
-	}
-	sortedarray = malloc(sizeof(int) * i);
+	sortedarray = malloc(sizeof(int) * len);
 	if (!sortedarray)
 		return (0);
 	i = 0;
-	while ((*a)->next)
+	while (temp != NULL)
 	{
-		*a = (*a)->next;
-		sortedarray[i] = (*a)->num;
+		sortedarray[i] = temp->num;
+		temp = temp->next;
 		i++;
 	}
 	return (sortedarray);
@@ -101,9 +95,9 @@ void	fill_postion_index(t_stack **a)
 	int		len;
 
 	i = 0;
-	sortedarray = getarray(a);
-	len = sizeof(sortedarray) / sizeof(sortedarray[0]);
-	if (stack_sorted(sortedarray))
+	len = ft_lstsize(*a);
+	sortedarray = getarray(a, len);
+	if (stack_sorted(sortedarray, len))
 	{
 		ft_free_stack(a);
 		free(sortedarray);

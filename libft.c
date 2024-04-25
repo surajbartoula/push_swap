@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:27:21 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/18 14:26:22 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 22:47:41 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,23 @@ int	ft_atoi(const char *str)
 	if ((neg * i) > 2147483647 || (neg * i) < -2147483648)
 		ft_error("The provided arguments exceeds int value.");
 	return (neg * i);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*tdest;
+	unsigned char	*tsrc;
+
+	if (dest == NULL && src == NULL)
+		return (0);
+	tdest = (unsigned char *)dest;
+	tsrc = (unsigned char *)src;
+	while (n > 0)
+	{
+		*tdest = *tsrc;
+		tdest++;
+		tsrc++;
+		n--;
+	}
+	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 07:54:27 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 06:31:47 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 22:40:29 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	ft_rrr(t_stack **a, t_stack **b, int j)
 {
 	while (j > 0)
 	{
-		ft_rra(&a, 1);
-		ft_rrb(&b, 1);
+		ft_rra(a, 1);
+		ft_rrb(b, 1);
 		ft_printf("rrr\n");
 		j--;
 	}

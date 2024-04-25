@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 07:04:21 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 22:48:53 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	fill_postion_index(t_stack **a);
 void	ft_free(char **argv);
 void	ft_error(char *str);
 void	ft_free_stack(t_stack **lst);
-int		stack_sorted(int *arr);
+int		stack_sorted(int *arr, int len);
 int		duplicate(t_stack *a);
 void	ft_pa(t_stack **a, t_stack **b, int j);
 void	ft_pb(t_stack **a, t_stack **b, int j);
@@ -55,5 +55,7 @@ void	ft_sort(t_stack **a);
 void	ft_tiny_sort(t_stack **a);
 void	ft_bigsort(t_stack **a, t_stack **b);
 char	**ft_split(char const *s, char c);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
