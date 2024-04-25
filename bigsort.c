@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 07:39:37 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 07:47:59 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,9 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 
 void	ft_bigsort(t_stack **a, t_stack **b)
 {
-	int	i;
 	int	len;
-	int	index;
 
-	i = 1;
-	index = 0;
-	len = ft_lstsize(a);
+	len = ft_lstsize(*a);
 	ft_rotate_push(a, b, len);
 	ft_tiny_sort(a);
 	ft_pa(a, b, len - 3);

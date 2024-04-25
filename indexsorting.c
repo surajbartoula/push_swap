@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:08:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 07:37:00 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 07:59:24 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,19 @@ void	ft_quicksort(int *arr, int low, int high)
 	if (low < high)
 	{
 		partindex = partition(arr, low, high);
+		ft_quicksort(arr, low, partindex - 1);
+		ft_quicksort(arr, partindex + 1, high);
 	}
 }
 
-void	fill_a_index(t_stack **a, int *sortedarray)
+void	fill_a_index(t_stack **a, int *sortedarray, int len)
 {
-	int	i;
-	int	len;
+	int		i;
+	t_stack	*current;
 
 	i = 0;
-	len = sizeof(sortedarray) / sizeof(sortedarray[0]);
-	while (i < len)
+	current = *a;
+	while (i < len && current != NULL)
 	{
 		while ((*a)->next)
 		{
@@ -81,7 +83,7 @@ int	*getarray(t_stack **a)
 	}
 	sortedarray = malloc(sizeof(int) * i);
 	if (!sortedarray)
-		return ;
+		return (0);
 	i = 0;
 	while ((*a)->next)
 	{
@@ -96,9 +98,11 @@ void	fill_postion_index(t_stack **a)
 {
 	int		*sortedarray;
 	int		i;
+	int		len;
 
 	i = 0;
 	sortedarray = getarray(a);
+	len = sizeof(sortedarray) / sizeof(sortedarray[0]);
 	if (stack_sorted(sortedarray))
 	{
 		ft_free_stack(a);
@@ -107,6 +111,6 @@ void	fill_postion_index(t_stack **a)
 	}
 	else
 		ft_quicksort(sortedarray, 0, i);
-	fill_a_index(a, sortedarray);
+	fill_a_index(a, sortedarray, len);
 	free(sortedarray);
 }
