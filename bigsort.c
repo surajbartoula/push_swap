@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 20:42:11 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 07:39:37 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 		}
 		if (index < (len - index))
 		{
-			ft_ra(&a, index);
-			ft_pb(&a, &b, 1);
+			ft_ra(a, index);
+			ft_pb(a, b, 1);
 		}
 		else
 		{
-			ft_rra(&a, index -1);
-			ft_pb(&a, &b, 1);
+			ft_rra(a, index -1);
+			ft_pb(a, b, 1);
 		}
 	}
 }
@@ -47,8 +47,8 @@ void	ft_bigsort(t_stack **a, t_stack **b)
 
 	i = 1;
 	index = 0;
-	len = ft_lstsize(&a);
-	ft_rotate_push(&a, &b, len);
-	ft_tiny_sort(&a);
-	ft_pa(&a, &b, len - 3);
+	len = ft_lstsize(a);
+	ft_rotate_push(a, b, len);
+	ft_tiny_sort(a);
+	ft_pa(a, b, len - 3);
 }

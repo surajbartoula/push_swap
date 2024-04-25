@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 22:46:33 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 19:27:53 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 07:38:11 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ void	ft_tiny_sort(t_stack **a)
 	if (middle->p_index > first->p_index && middle->p_index > last->p_index
 		&& first->p_index < last->p_index)
 	{
-		ft_rra(&a, 1);
-		ft_sa(&a, 1);
+		ft_rra(a, 1);
+		ft_sa(a, 1);
 	}
 	else if (middle->p_index < first->p_index && middle->p_index < last->p_index
 		&& first->p_index < last->p_index)
-		ft_sa(&a, 1);
+		ft_sa(a, 1);
 	else if (middle->p_index > first->p_index && middle->p_index > last->p_index
 		&& first->p_index > last->p_index)
-		ft_rra(&a, 1);
+		ft_rra(a, 1);
 	else if (middle->p_index < first->p_index && middle->p_index < last->p_index
 		&& first->p_index > last->p_index)
-		ft_ra(&a, 1);
+		ft_ra(a, 1);
 	else if (middle->p_index < first->p_index
 		&& middle->p_index > last->p_index)
-		ft_rra(&a, 1);
+		ft_rra(a, 1);
 }
 
 void	ft_sort(t_stack **a)
@@ -47,9 +47,9 @@ void	ft_sort(t_stack **a)
 
 	b = NULL;
 	if (ft_lstsize(a) == 2)
-		ft_sa(&a, 1);
+		ft_sa(a, 1);
 	else if (ft_lstsize(a) == 3)
-		ft_tiny_sort(&a);
+		ft_tiny_sort(a);
 	else
-		ft_bigsort(&a, &b);
+		ft_bigsort(a, b);
 }

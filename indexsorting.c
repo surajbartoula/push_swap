@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:08:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 06:57:52 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 07:37:00 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,15 @@ void	fill_postion_index(t_stack **a)
 	int		i;
 
 	i = 0;
-	sortedarray = getarray(&a);
+	sortedarray = getarray(a);
 	if (stack_sorted(sortedarray))
 	{
-		ft_free_stack(&a);
+		ft_free_stack(a);
 		free(sortedarray);
 		exit(0);
 	}
 	else
 		ft_quicksort(sortedarray, 0, i);
-	fill_a_index(&a, sortedarray);
+	fill_a_index(a, sortedarray);
 	free(sortedarray);
 }
