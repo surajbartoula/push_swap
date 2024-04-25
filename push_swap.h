@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/22 19:27:34 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/25 05:54:53 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct push_swap
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new_lst);
 t_stack	*ft_lstnew(int *num);
+t_stack	*ft_lstlast(t_stack *lst);
 int		ft_atoi(const char *str);
 void	ft_swap(int *a, int *b);
 void	returnlsta(int argc, char *argv[], t_stack **a);
