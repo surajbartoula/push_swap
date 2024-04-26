@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 22:48:53 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/26 04:26:37 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_error(char *str);
 void	ft_free_stack(t_stack **lst);
 int		stack_sorted(int *arr, int len);
 int		duplicate(t_stack *a);
+size_t	ft_strlen(const char *str);
 void	ft_pa(t_stack **a, t_stack **b, int j);
 void	ft_pb(t_stack **a, t_stack **b, int j);
 void	ft_rrr(t_stack **a, t_stack **b, int j);
