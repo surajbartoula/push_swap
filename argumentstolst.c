@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:00:29 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/26 05:55:32 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/27 11:01:08 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ void	returnlsta(int argc, char *argv[], t_stack **a)
 		i = -1;
 		while (string[++i])
 		{
-			numb = ft_atoi(argv[i]);
+			numb = ft_atoi(string[i]);
 			ft_lstadd_back(a, ft_lstnew(numb));
 		}
-		ft_printf("%d\n", ft_lstsize(*a));
 		ft_free(string);
 	}
 	else

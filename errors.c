@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:36:28 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/19 15:16:41 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/27 11:12:06 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ void	ft_error(char *str)
 void	ft_free(char **argv)
 {
 	char	*str;
+	int		i;
 
 	if (!argv)
 		return ;
-	while (*argv)
+	i = 0;
+	while (argv[i] != 0)
 	{
-		str = *argv;
-		argv++;
+		str = argv[i];
+		i++;
 		free(str);
 	}
-	*argv = NULL;
 	free(argv);
 }
 
