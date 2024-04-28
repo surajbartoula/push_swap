@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checkindexvalue.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/28 10:07:55 by sbartoul         ###   ########.fr       */
+/*   Created: 2024/04/28 09:57:03 by sbartoul          #+#    #+#             */
+/*   Updated: 2024/04/28 10:10:13 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	get_index_position(t_stack *a)
 {
-	t_stack	*a;
+	t_stack	*current;
 
-	a = NULL;
-	returnlsta(argc, argv, &a);
-	if (!a || duplicate(a))
+	current = a;
+	while (current)
 	{
-		ft_free_stack(&a);
-		ft_error("Duplicate number or stack doesn't exist.");
+		ft_printf("%d ", current->p_index);
+		current = current->next;
 	}
-	else if (ft_lstsize(a) == 1)
-	{
-		ft_free_stack(&a);
-		return (0);
-	}
-	fill_postion_index(&a);
-	get_index_position(a);
-	ft_sort(&a);
-	ft_free_stack(&a);
-	return (0);
+	ft_printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:08:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 22:44:34 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/28 10:49:42 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,21 @@ void	fill_a_index(t_stack **a, int *sortedarray, int len)
 	t_stack	*current;
 
 	i = 0;
-	current = *a;
-	while (i < len && current != NULL)
+	while (i < len)
 	{
-		if (sortedarray[i] == current->num)
+		current = *a;
+		while (current)
 		{
-			current->p_index = i;
-			current = current->next;
-			i++;
+			if (sortedarray[i] == current->num)
+			{
+				current->p_index = i;
+				i++;
+			}
+			else
+			{
+				current = current->next;
+			}
 		}
-		else
-			current = current->next;
 	}
 }
 
@@ -91,12 +95,18 @@ int	*getarray(t_stack **a, int len)
 void	fill_postion_index(t_stack **a)
 {
 	int		*sortedarray;
-	int		i;
 	int		len;
+	int		i;
 
-	i = 0;
 	len = ft_lstsize(*a);
 	sortedarray = getarray(a, len);
+	i = 0;
+	while (i < len)
+	{
+		ft_printf("%d ", sortedarray[i]);
+		i++;
+	}
+	ft_printf("\n");
 	if (stack_sorted(sortedarray, len))
 	{
 		ft_free_stack(a);
@@ -104,7 +114,14 @@ void	fill_postion_index(t_stack **a)
 		exit(0);
 	}
 	else
-		ft_quicksort(sortedarray, 0, i);
+		ft_quicksort(sortedarray, 0, len - 1);
+	i = 0;
+	while (i < len)
+	{
+		ft_printf("%d ", sortedarray[i]);
+		i++;
+	}
+	ft_printf("\n");
 	fill_a_index(a, sortedarray, len);
 	free(sortedarray);
 }

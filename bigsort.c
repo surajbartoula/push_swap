@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/25 07:47:59 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:06:10 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,33 @@
 
 void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 {
-	int	i;
-	int	index;
+	int		i;
+	int		index;
+	t_stack	*current;
 
-	i = 1;
-	index = 0;
-	while (i <= len - 3)
+	i = 0;
+	while (i < len - 2)
 	{
-		while ((*a)->p_index != i)
+		index = 1;
+		current = *a;
+		while (current && current->p_index != i)
 		{
-			(*a) = (*a)->next;
+			current = current->next;
 			index++;
 		}
 		if (index < (len - index))
 		{
-			ft_ra(a, index);
+			ft_ra(a, index - 1);
 			ft_pb(a, b, 1);
+			len--;
 		}
 		else
 		{
-			ft_rra(a, index -1);
+			ft_rra(a, len - index);
 			ft_pb(a, b, 1);
+			len--;
 		}
+		i++;
 	}
 }
 
@@ -45,6 +50,7 @@ void	ft_bigsort(t_stack **a, t_stack **b)
 
 	len = ft_lstsize(*a);
 	ft_rotate_push(a, b, len);
-	ft_tiny_sort(a);
+	if (ft_lstsize(*a) == 3)
+		ft_tiny_sort(a);
 	ft_pa(a, b, len - 3);
 }
