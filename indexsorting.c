@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:08:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/29 14:59:56 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:14:33 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	fill_a_index(t_stack **a, int *sortedarray, int len)
 	t_stack	*current;
 
 	i = 0;
-	while (i < len && current != NULL)
+	while (i < len)
 	{
 		current = *a;
 		while (current)
