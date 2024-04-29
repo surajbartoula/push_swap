@@ -6,11 +6,23 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/29 14:56:25 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:21:01 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	anticlockwise(t_stack **a, t_stack **b, int index)
+{
+	ft_ra(a, index - 1);
+	ft_pb(a, b, 1);
+}
+
+void	clockwise(t_stack **a, t_stack **b, int index, int size)
+{
+	ft_rra(a, (size - index) + 1);
+	ft_pb(a, b, 1);
+}
 
 void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 {
@@ -31,15 +43,9 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 			index++;
 		}
 		if (index <= (size - index))
-		{
-			ft_ra(a, index - 1);
-			ft_pb(a, b, 1);
-		}
+			anticlockwise(a, b, index);
 		else
-		{
-			ft_rra(a, (size - index) + 1);
-			ft_pb(a, b, 1);
-		}
+			clockwise(a, b, index, size);
 		i++;
 	}
 }
