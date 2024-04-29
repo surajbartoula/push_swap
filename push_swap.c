@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:11:44 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/28 10:07:55 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/29 14:51:48 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	fill_postion_index(&a);
-	get_index_position(a);
 	ft_sort(&a);
 	ft_free_stack(&a);
 	return (0);
