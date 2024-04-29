@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:08:36 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/28 10:49:42 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/28 17:46:47 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	fill_a_index(t_stack **a, int *sortedarray, int len)
 			{
 				current->p_index = i;
 				i++;
+				current = current->next;
 			}
 			else
 			{

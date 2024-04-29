@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/28 12:06:10 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/04/28 17:49:39 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 	t_stack	*current;
 
 	i = 0;
-	while (i < len - 2)
+	while (i < len - 3)
 	{
 		index = 1;
 		current = *a;
@@ -32,13 +32,11 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 		{
 			ft_ra(a, index - 1);
 			ft_pb(a, b, 1);
-			len--;
 		}
 		else
 		{
 			ft_rra(a, len - index);
 			ft_pb(a, b, 1);
-			len--;
 		}
 		i++;
 	}
@@ -49,6 +47,7 @@ void	ft_bigsort(t_stack **a, t_stack **b)
 	int	len;
 
 	len = ft_lstsize(*a);
+	ft_printf("%d\n", len);
 	ft_rotate_push(a, b, len);
 	if (ft_lstsize(*a) == 3)
 		ft_tiny_sort(a);
