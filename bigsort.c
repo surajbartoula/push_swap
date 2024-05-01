@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/05/01 06:52:15 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/05/01 07:49:15 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len, int i)
 	int		low;
 	t_stack	*cur;
 
-	while (i < len - 5)
+	while (i < len - 2)
 	{
 		cur = *a;
 		high = highvalue(ipos(a, i), ipos(a, i + 1), ipos(a, i + 2));
@@ -92,12 +92,22 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len, int i)
 void	ft_bigsort(t_stack **a, t_stack **b)
 {
 	int	len;
+	int	size;
 	int	i;
 
 	i = 1;
 	len = ft_lstsize(*a);
-	ft_rotate_push(a, b, len, i);
-	if (ft_lstsize(*a) == 3)
+	if (len >= 6 && ((len - 3) % 3 == 0))
+		ft_rotate_push(a, b, len, i);
+	else if (len >= 6 && (((len - 3) % 3 == 1) || ((len - 3) % 3 == 1)))
+	{
+		ft_rotate_push(a, b, len, i);
+		size = ft_lstsize(*a);
+		ft_rp_till6(a, b, size);
+	}
+	else
+		ft_rp_till6(a, b, len);
+	if (len == 3)
 		ft_tiny_sort(a);
 	ft_pa(a, b, len - 3);
 }

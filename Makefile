@@ -6,7 +6,7 @@
 #    By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 06:35:38 by sbartoul          #+#    #+#              #
-#    Updated: 2024/05/01 06:43:39 by sbartoul         ###   ########.fr        #
+#    Updated: 2024/05/01 07:19:56 by sbartoul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ CFILES = 	push_swap.c     	\
 			stacksortcheck.c	\
 			split.c				\
 			highmidlow.c		\
+			ft_lsix.c			\
 
 OBJECTS = ${CFILES:.c=.o}
 

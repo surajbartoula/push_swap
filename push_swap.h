@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/05/01 06:46:59 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/05/01 07:26:54 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int		lowvalue(int first, int second, int third);
 int		midvalue(int a, int b, int c);
 int		highvalue(int first, int second, int third);
 int		anticlock(int low, int mid, int high, int size);
+void	ft_rp_till6(t_stack **a, t_stack **b, int len);
 
 #endif
