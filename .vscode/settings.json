@@ -1,6 +1,11 @@
 {
 	"files.associations": {
 		"libft.h": "c",
-		"string": "c"
+		"string": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"utility": "c",
+		"push_swap.h": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:09:41 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/29 14:52:34 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/05/01 06:46:59 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ void	ft_bigsort(t_stack **a, t_stack **b);
 char	**ft_split(char const *s, char c);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		lowvalue(int first, int second, int third);
+int		midvalue(int a, int b, int c);
+int		highvalue(int first, int second, int third);
+int		anticlock(int low, int mid, int high, int size);
 
 #endif

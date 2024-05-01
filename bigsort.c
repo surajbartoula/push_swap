@@ -6,40 +6,47 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 05:58:03 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/04/30 07:51:24 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/05/01 06:52:15 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	anticlock(int index, int size)
-{
-	if (index <= (size - index))
-		return (1);
-	return (0);
-}
-
 void	anticlockwise(t_stack **a, t_stack **b, int index)
 {
+	t_stack	*currenta;
+	t_stack	*currentb;
+
+	currentb = *b;
 	ft_ra(a, index - 1);
-	ft_pb(a, b, 1);
+	currenta = *a;
+	if (currenta->num < currentb->num)
+	{
+		ft_pb(a, b, 1);
+		ft_sb(b, 1);
+	}
+	else
+		ft_pb(a, b, 1);
 }
 
 void	clockwise(t_stack **a, t_stack **b, int index, int size)
 {
+	t_stack	*currenta;
+	t_stack	*currentb;
+
+	currentb = *b;
 	ft_rra(a, (size - index) + 1);
-	ft_pb(a, b, 1);
-}
-
-void	rotatestack(t_stack **a, t_stack **b, int index, int size)
-{
-	if (anticlock(index, size))
-		anticlockwise(a, b, index);
+	currenta = *a;
+	if (currenta->num < currentb->num)
+	{
+		ft_pb(a, b, 1);
+		ft_sb(b, 1);
+	}
 	else
-		clockwise(a, b, index, size);
+		ft_pb(a, b, 1);
 }
 
-int	indexposition(t_stack **a, int i)
+int	ipos(t_stack **a, int i)
 {
 	t_stack	*current;
 	int		index;
@@ -53,22 +60,31 @@ int	indexposition(t_stack **a, int i)
 	return (index);
 }
 
-void	ft_rotate_push(t_stack **a, t_stack **b, int len)
+void	ft_rotate_push(t_stack **a, t_stack **b, int len, int i)
 {
-	int		i;
-	int		findex;
-	int		sindex;
-	int		size;
-	t_stack	*current;
+	int		high;
+	int		mid;
+	int		low;
+	t_stack	*cur;
 
-	i = 1;
-	while (i < len - 2)
+	while (i < len - 5)
 	{
-		current = *a;
-		size = ft_lstsize(current);
-		findex = indexposition(a, i);
-		sindex = indexposition(a, i + 1);
-		rotatestack(a, b, findex, size);
+		cur = *a;
+		high = highvalue(ipos(a, i), ipos(a, i + 1), ipos(a, i + 2));
+		mid = midvalue(ipos(a, i), ipos(a, i + 1), ipos(a, i + 2));
+		low = lowvalue(ipos(a, i), ipos(a, i + 1), ipos(a, i + 2));
+		if (anticlock(low, mid, high, ft_lstsize(cur)))
+		{
+			anticlockwise(a, b, low);
+			anticlockwise(a, b, mid - low);
+			anticlockwise(a, b, high - mid);
+		}
+		else
+		{
+			clockwise(a, b, ft_lstsize(cur) + 1 - high, ft_lstsize(cur));
+			clockwise(a, b, high - mid, ft_lstsize(cur));
+			clockwise(a, b, mid - low, ft_lstsize(cur));
+		}
 		i++;
 	}
 }
@@ -76,9 +92,11 @@ void	ft_rotate_push(t_stack **a, t_stack **b, int len)
 void	ft_bigsort(t_stack **a, t_stack **b)
 {
 	int	len;
+	int	i;
 
+	i = 1;
 	len = ft_lstsize(*a);
-	ft_rotate_push(a, b, len);
+	ft_rotate_push(a, b, len, i);
 	if (ft_lstsize(*a) == 3)
 		ft_tiny_sort(a);
 	ft_pa(a, b, len - 3);
