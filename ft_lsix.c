@@ -6,7 +6,7 @@
 /*   By: sbartoul <sbartoul@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 07:19:38 by sbartoul          #+#    #+#             */
-/*   Updated: 2024/05/01 07:27:24 by sbartoul         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:28:54 by sbartoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ void	ft_rp_till6(t_stack **a, t_stack **b, int len)
 	t_stack	*current;
 
 	i = 1;
-	while (i < len - 2)
+	size = ft_lstsize(*a);
+	while (i < size - 2)
 	{
-		index = 1;
+		index = 0;
 		current = *a;
 		size = ft_lstsize(current);
-		while (current && current->p_index != i)
+		while (current && current->p_index != (len - size + 1))
 		{
 			current = current->next;
 			index++;
